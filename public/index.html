@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Speedrite</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/ie.css">
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 9]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="main">
+    <div class="first">
+        <img id="title" src="img/title.png" alt="Win a Ford Ranger Ute" title="Win a Ford Ranger Ute">
+
+        <img src="img/congratulations.png" alt="Congratulations on the purchase of your new Speedrite Energizer." title="Congratulations on the purchase of your new Speedrite Energizer.">
+
+        <h4>Enter your unique code from your entry form:</h4>
+        <input type="text" id="code" name="code">
+
+        <button class="next" id="second">START</button>
+        <small>By clicking start, you agree to the <a href="terms.pdf" target="_blank">terms and conditions</a> of entry.</small>
+
+        <img src="img/ute.png" alt="Ford Ranger Ute">
+    </div>
+
+    <div class="second">
+        <h2>Enter your details:</h2>
+
+        <form id="main-form">
+            <div>
+                <label>Name:</label>
+                <input type="text" name="name">
+            </div>
+
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email">
+            </div>
+
+            <div>
+                <label>Phone:</label>
+                <input type="tel" name="phone">
+            </div>
+
+            <div>
+                <label>Energizer Model Purchased:</label>
+                <input type="text" name="model">
+            </div>
+
+            <div>
+                <label>Store Purchased From:</label>
+                <input type="text" name="store">
+            </div>
+
+            <div>
+                <label>Energizer Serial Number (found on the back of the unit):</label>
+                <input type="text" name="serial">
+            </div>
+        </form>
+
+        <button class="next" id="third" type="button">START</button>
+
+        <p class="error">Please complete all the fields correctly.</p>
+    </div>
+
+    <div class="third">
+        <h2>Enter your guess for the number plate:<br><span id="little-title">You need to enter one letter followed by two numbers.</span></h2>
+
+        <div id="plate">
+            <span>SP&nbsp;&nbsp;&nbsp;0</span>
+            <input id="guess" type="text" name="guess" placeholder="---">
+        </div>
+
+        <button class="next" type="button" id="submit">SUBMIT</button>
+        <!-- <small>By clicking submit, you agree to the <a href="terms.pdf" target="_blank">terms and conditions</a> of entry.</small> -->
+    </div>
+
+    <div id="success">
+        <h3>Thank you for entering!</h3>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<script src="js/vendor/fastclick.js"></script>
+<script src="js/vendor/input.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
