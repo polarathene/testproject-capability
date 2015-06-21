@@ -15,10 +15,7 @@ try {
         # Query DB to check if entry_code value already exists
         $pdo_ecExists = $pdo_db->prepare('SELECT main.entry_code FROM main WHERE main.entry_code = :entry_code'); # LIMIT 1?
         $pdo_ecExists->execute(array('entry_code' => $entry_code));
-
-        # Get array containing all of the result rows
-        $pdo_ecExists->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $pdo_ecExists->fetchAll();
+        $result = $pdo_ecExists->fetchColumn(); # Gets a single column value from a single row(or all rows)?
 
         # If one or more rows were returned...
         if (count($result)) {
