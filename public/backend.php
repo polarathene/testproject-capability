@@ -26,11 +26,28 @@ try {
     } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
         # Stores the submitted form data
         $pdo_storeEntry = $pdo_db->prepare('
-        INSERT INTO `main` (`entry_code`, `name`, `email`, `phone`, `store`, `model_purchased`, `serial_number`, `nplate_guess`)
-        VALUES
-          (:entry_code, :name, :email, :phone, :store,
-          (SELECT `id` FROM `model` WHERE `name` = :model_purchased),
-          :serial_number, :nplate_guess)
+            INSERT INTO `main` (
+                `entry_code`,
+                `name`,
+                `email`,
+                `phone`,
+                `store`,
+                `model_purchased`,
+                `serial_number`,
+                `nplate_guess`
+            )
+            VALUES (
+                :entry_code,
+                :name,
+                :email,
+                :phone,
+                :store,
+                  (SELECT id`
+                  FROM `model`
+                  WHERE`name` = :model_purchased),
+                :serial_number,
+                :nplate_guess
+            )
         ');
 
         $pdo_storeEntry->execute(array(
