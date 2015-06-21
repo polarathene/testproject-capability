@@ -14,16 +14,14 @@ try {
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
         # Query DB to check if entry_code value already exists
         $pdo_ecExists = $pdo_db->prepare('SELECT main.entry_code FROM main WHERE main.entry_code = :entry_code'); # LIMIT 1?
-        $pdo_ecExists->execute(array('entry_code' => $entry_code));
+        $pdo_ecExists->execute(array('entry_code' => $_GET['entry_code']));
         $result = $pdo_ecExists->fetchColumn(); # Gets a single column value from a single row(or all rows)?
 
-        # If one or more rows were returned...
-        if (count($result)) {
-            foreach ($result as $row) {
-                print_r($row);
-            }
-        } else {
-            echo "No rows returned." . $entry_code;
+        # Return the result
+        if ($result) {
+            echo "The entry_code '" . $_GET['entry_code'] ."' is already in use!" ;
+        } else { # $result is null
+            echo "The entry_code '" . $_GET['entry_code'] ."' is avaliable!" ;
         }
     } else if ($_SERVER['REQUEST_METHOD'] == "POST") {
         # Stores the submitted form data
@@ -46,7 +44,7 @@ try {
             ':nplate_guess'    => $_POST['nplate_guess']
         ));
 
-        echo "Stored data successfully."
+        echo "Stored data successfully.";
     }
     # close the connection
     $pdo_db = null;
